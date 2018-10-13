@@ -29,8 +29,18 @@ public class Login extends HttpServlet{
         //Controllo se il protocollo è https
         Utils.checkForHttpsProtocol(req, resp);
 
+        //Reindirizzo al client web
+        try {
+            RequestDispatcher view = req.getRequestDispatcher("login.jsp");
+            view.forward(req, resp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-        // GET path protocol
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
+        // path protocol
         String patList[] = req.getPathInfo().split("/");
         if (patList.length > 0) {
             if(patList[0].equals("api")) {
@@ -51,20 +61,7 @@ public class Login extends HttpServlet{
                     }
                 }
             }
-        }else {
-            //Reindirizzo al client web
-            try {
-                RequestDispatcher view = req.getRequestDispatcher("login.jsp");
-                view.forward(req, resp);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
-        doGet(req,resp);
     }
 
     public static void apiProduceOutput(HttpServletResponse resp, int authResult) throws JSONException, IOException {
