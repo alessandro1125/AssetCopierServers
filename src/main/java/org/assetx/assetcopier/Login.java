@@ -48,6 +48,8 @@ public class Login extends HttpServlet {
 
         // path protocol
         String patList[] = req.getPathInfo().split("/");
+        for(String path : patList)
+            System.out.println(path+ "--exx");
         if (patList.length > 0) {
             System.out.println("case 1");
             if(patList[0].equals("api")) {
