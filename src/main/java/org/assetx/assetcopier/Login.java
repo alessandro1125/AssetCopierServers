@@ -21,7 +21,7 @@ import java.util.Base64;
         name = "LoginServlet",
         urlPatterns = {"/login/*"}
 )
-public class Login extends HttpServlet{
+public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp){
@@ -40,6 +40,11 @@ public class Login extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp){
+
+        //Controllo se il protocollo è https
+        Utils.checkForHttpsProtocol(req, resp);
+
+
         // path protocol
         String patList[] = req.getPathInfo().split("/");
         if (patList.length > 0) {
@@ -61,14 +66,25 @@ public class Login extends HttpServlet{
                     }
                 }
             }
+        } else {
+            try {
+                apiProduceOutput(resp, -1);
+            } catch (JSONException | IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public static void apiProduceOutput(HttpServletResponse resp, int authResult) throws JSONException, IOException {
         JSONObject responseJson = new JSONObject();
-        responseJson.put("action", "failed");
-        responseJson.put("error", authResult);
+        if (authResult == 0) {
+            responseJson.put("action", "complete");
+        }else {
+            responseJson.put("action", "failed");
+            responseJson.put("error", authResult);
+        }
         resp.getOutputStream().write(responseJson.toString().getBytes());
+        resp.getOutputStream().close();
     }
 
     /**
