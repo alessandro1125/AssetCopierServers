@@ -49,6 +49,8 @@ public class Login extends HttpServlet {
         // path protocol
         String pathStirng = req.getPathInfo().substring(1, req.getPathInfo().length()-1);
         String patList[] = pathStirng.split("/");
+        for (String path: patList)
+            System.out.println(path);
         if (patList.length > 0) {
             if(patList[0].equals("api")) {
                 //Sono nella api
