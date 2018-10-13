@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -66,12 +67,6 @@ public class Login extends HttpServlet {
                     }
                 }
             }
-        } else {
-            try {
-                apiProduceOutput(resp, -1);
-            } catch (JSONException | IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -83,8 +78,10 @@ public class Login extends HttpServlet {
             responseJson.put("action", "failed");
             responseJson.put("error", authResult);
         }
-        resp.getOutputStream().write(responseJson.toString().getBytes());
-        resp.getOutputStream().close();
+        OutputStream outputStream = resp.getOutputStream();
+        outputStream.write(responseJson.toString().getBytes());
+        outputStream.flush();
+        outputStream.close();
     }
 
     /**
