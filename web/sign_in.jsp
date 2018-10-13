@@ -165,7 +165,7 @@
                     String passkeyUrlEncoded = URLEncoder.encode(new String(Base64.getEncoder().encode(passkey.getBytes())), "UTF-8");
                     String emailUrlEncoded = URLEncoder.encode(email, "UTF-8");
                     String text = "To confirm your Get Advertisment Account click to the following link: " +
-                            "https://assetmax.herokuapp.com/sign_in?action=2&passkey=" + passkeyUrlEncoded
+                            "https://assetcopiernode.herokuapp.com/sign_in?action=2&passkey=" + passkeyUrlEncoded
                             + "&email=" + emailUrlEncoded;
                     if(sendEmail(new String(Base64.getDecoder().decode(email.getBytes())), text, "User confirmation")){
 
