@@ -1,3 +1,41 @@
+POST https://assetcopiernode.herokuapp.com/login/api/authuserr
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ "email" : "test@test.com" , "password":"test"}
+
+<> 2018-10-13T095354.200.txt
+
+###
+
+POST https://assetcopiernode.herokuapp.com/login/api/authuser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ "email" : "test@test.com" , "password":"test"}
+
+###
+
+POST https://assetcopiernode.herokuapp.com/login/api/authuser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ "email" : "test@test.com" , "password":"test"}
+
+###
+
+POST https://assetcopiernode.herokuapp.com/login/api/authuser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ "email" : "test@test.com" , "password":"test"}
+
+###
+
 POST https://assetcopiernode.herokuapp.com/login/api/authuser
 Accept: */*
 Cache-Control: no-cache
