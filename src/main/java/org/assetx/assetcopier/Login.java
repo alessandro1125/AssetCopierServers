@@ -49,18 +49,24 @@ public class Login extends HttpServlet {
         // path protocol
         String patList[] = req.getPathInfo().split("/");
         if (patList.length > 0) {
+            System.out.println("case 1");
             if(patList[0].equals("api")) {
+                System.out.println("case 2");
                 //Sono nella api
                 assert patList.length > 1;
                 if (patList[1].equals("authuser")) {
+                    System.out.println("case 3");
                     // Devo autenticare l'utente
                     // Ricavo i parametri
                     try {
                         JSONObject postParams = new JSONObject(Utils.readFrominputStram(req.getInputStream()));
                         String email =      postParams.getString("email");
                         String password =   postParams.getString("password");
+                        System.out.println(email);
+                        System.out.println(password);
                         // Eseguo l'autenticazione
                         int authRes = authenticateUser(null, email, password);
+                        System.out.println(authRes);
                         apiProduceOutput(resp, authRes);
                     } catch (JSONException | IOException | SQLException e) {
                         e.printStackTrace();
