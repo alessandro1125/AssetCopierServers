@@ -170,14 +170,17 @@
                     if(sendEmail(new String(Base64.getDecoder().decode(email.getBytes())), text, "User confirmation")){
 
                         //Se l'email è stata inviata correttamente salvo l'utente nel database
-                        HashMap<String, String> map = new HashMap();
+                        HashMap<String, Object> map = new HashMap();
                         map.put("email", email);
                         map.put("password", password);
                         map.put("name", name);
+                        map.put("surname", name);
                         map.put("passkey", passkey);
-                        map.put("email_active", "0");
-                        map.put("licence_active", "0");
+                        map.put("email_active", 0);
+                        map.put("licence_active", 0);
                         map.put("account_id", "0");
+                        map.put("chat_id", "00");
+                        map.put("trades_listen", false);
 
                         Connection connection = null;
 
@@ -185,11 +188,6 @@
                             connection = SqlUtils.getConnectionHeroku();
                         }catch (Exception e){
                             e.printStackTrace();
-                            try {
-                                connection.close();
-                            } catch (SQLException e1) {
-                                e1.printStackTrace();
-                            }
                             System.out.println("Errore nella connessione con il batabase " + ERROR_CODE_PAGE + "x02");
                             String redirectURL = "login?action=0&message=" +
                                     new String(Base64.getEncoder().encode(("An error has occurred " +
