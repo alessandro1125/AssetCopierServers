@@ -48,28 +48,29 @@ public class Login extends HttpServlet {
 
         // path protocol
         String pathStirng = req.getPathInfo();
-        if (pathStirng != null)
+        if (pathStirng != null) {
             pathStirng = pathStirng.substring(1);
-        String patList[] = pathStirng.split("/");
-        for (String path: patList)
-            System.out.println(path);
-        if (patList.length > 0) {
-            if(patList[0].equals("api")) {
-                //Sono nella api
-                assert patList.length > 1;
-                if (patList[1].equals("authuser")) {
-                    // Devo autenticare l'utente
-                    // Ricavo i parametri
-                    try {
-                        JSONObject postParams = new JSONObject(Utils.readFrominputStram(req.getInputStream()));
-                        String email =      postParams.getString("email");
-                        String password =   postParams.getString("password");
-                        // Eseguo l'autenticazione
-                        int authRes = authenticateUser(null, email, password);
-                        System.out.println(authRes);
-                        apiProduceOutput(resp, authRes);
-                    } catch (JSONException | IOException | SQLException e) {
-                        e.printStackTrace();
+            String patList[] = pathStirng.split("/");
+            for (String path : patList)
+                System.out.println(path);
+            if (patList.length > 0) {
+                if (patList[0].equals("api")) {
+                    //Sono nella api
+                    assert patList.length > 1;
+                    if (patList[1].equals("authuser")) {
+                        // Devo autenticare l'utente
+                        // Ricavo i parametri
+                        try {
+                            JSONObject postParams = new JSONObject(Utils.readFrominputStram(req.getInputStream()));
+                            String email = postParams.getString("email");
+                            String password = postParams.getString("password");
+                            // Eseguo l'autenticazione
+                            int authRes = authenticateUser(null, email, password);
+                            System.out.println(authRes);
+                            apiProduceOutput(resp, authRes);
+                        } catch (JSONException | IOException | SQLException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
