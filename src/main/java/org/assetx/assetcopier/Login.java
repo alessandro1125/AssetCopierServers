@@ -47,7 +47,9 @@ public class Login extends HttpServlet {
 
 
         // path protocol
-        String pathStirng = req.getPathInfo().substring(1);
+        String pathStirng = req.getPathInfo();
+        if (pathStirng != null)
+            pathStirng = pathStirng.substring(1);
         String patList[] = pathStirng.split("/");
         for (String path: patList)
             System.out.println(path);
@@ -71,6 +73,8 @@ public class Login extends HttpServlet {
                     }
                 }
             }
+        }else {
+            doGet(req, resp);
         }
     }
 

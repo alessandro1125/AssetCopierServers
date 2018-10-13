@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="it" dir="ltr">
     <head>
-        <title>Licence Manager</title>
+        <title>Asset Copier</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/styles" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
