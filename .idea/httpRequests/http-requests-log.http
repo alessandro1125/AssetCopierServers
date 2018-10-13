@@ -21,6 +21,15 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
+{ "email" : "test@test.com" , "password":"test"}
+
+###
+
+POST https://assetcopiernode.herokuapp.com/login/api/authuser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
 { "email" : "test@test.com", "password":"test"}
 
 ###
