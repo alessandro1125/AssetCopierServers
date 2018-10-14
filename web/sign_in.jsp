@@ -253,8 +253,8 @@
                     String passkey2 = null;
                     String email2 = null;
                     try {
-                        passkey2 =  URLDecoder.decode(request.getParameter("passkey"), "UTF-8");
-                        email2 =    Base64.getEncoder().encodeToString(URLDecoder.decode(request.getParameter("email"), "UTF-8").getBytes());
+                        passkey2 =  new String (Base64.getDecoder().decode(request.getParameter("passkey").getBytes()));
+                        email2 =    request.getParameter("email");
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         System.out.println("Errore nella recezione della passkey " + ERROR_CODE_PAGE + "x05");
