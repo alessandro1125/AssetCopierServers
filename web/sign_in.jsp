@@ -336,7 +336,7 @@
                 case 4:
                     String email4 = null;
                     try{
-                        email4 = new String(Base64.getEncoder().encode(request.getParameter("email").getBytes()));
+                        email4 = Base64.getEncoder().encodeToString(request.getParameter("email").getBytes());
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         System.out.println("Errore nel parametro " + ERROR_CODE_PAGE + "x08");
@@ -358,7 +358,7 @@
                         //Invio la passkey per email
                         String textPass = "To change your password please click on this link: " +
                                 "https://assetcopiernode.herokuapp.com/sign_in?action=5&email="+
-                                URLEncoder.encode(new String(Base64.getEncoder().encode(email4.getBytes())),"UTF-8")
+                                URLEncoder.encode(email4,"UTF-8")
                                 + "&passkey=" +URLEncoder.encode(new String(Base64.getEncoder().encode(passkeyPass.getBytes())),"UTF-8");
                         if(sendEmail(new String(Base64.getDecoder().decode(email4.getBytes())), textPass, "Reset password")){
                             //Aggiorno il database
@@ -424,7 +424,7 @@
                     String email5Encoded = null;
                     try{
                         email5Encoded = request.getParameter("email");
-                        email5 =    new String(Base64.getDecoder().decode(URLDecoder.decode(email5Encoded, "UTF-8").getBytes()));
+                        email5 =    URLDecoder.decode(email5Encoded, "UTF-8");
                         passkey5 =  new String(Base64.getDecoder().decode(URLDecoder.decode
                                 (request.getParameter("passkey"), "UTF-8").getBytes()));
                     }catch (NullPointerException e){
@@ -510,8 +510,8 @@
 
                     //Decodifico email e password e inserisco la password nel db
                     try{
-                        email6 = new String(Base64.getDecoder().decode(URLDecoder.decode
-                                (request.getParameter("email"), "UTF-8")));
+                        email6 = URLDecoder.decode
+                                (request.getParameter("email"), "UTF-8");
                         newPassword = request.getParameter("password");
                     }catch (NullPointerException e){
                         e.printStackTrace();
@@ -526,7 +526,7 @@
                                         ERROR_CODE_PAGE + "x14").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
-                    System.out.println(email6);
+                    System.out.println("Email 6: " + email6);
                     System.out.print(newPassword);
 
                     //Aggiorno il db
