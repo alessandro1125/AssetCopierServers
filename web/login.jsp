@@ -8,6 +8,7 @@
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="com.assetx.libraries.utils.SqlUtils" %>
 <%@ page import="org.assetx.assetcopier.Login" %>
+<%@ page import="org.python.tests.props.PropShadow" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="it" dir="ltr">
     <head>
@@ -133,8 +134,8 @@
                     String password = null;
 
                     try{
-                        email = request.getParameter("email");
-                        password = request.getParameter("password");
+                        email = Base64.getEncoder().encodeToString(request.getParameter("email").getBytes());
+                        password = Base64.getEncoder().encodeToString(request.getParameter("password").getBytes());
                     }catch (Exception e){
                         e.printStackTrace();
                     }
