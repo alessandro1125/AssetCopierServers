@@ -198,9 +198,8 @@
                         //Controllo se l'utente è già registrato
                         try{
                         if(Login.authenticateUser(null, email, "") == 1){
-                            connection = SqlUtils.getConnectionHeroku();
                             if(SqlUtils.sqlAdd(connection , map, "users")){
-
+                                connection = SqlUtils.getConnectionHeroku();
                                 //aggiungo la mail readable
                                 HashMap<String, Object> objects = new HashMap<>();
                                 objects.put("email_readable", new String(Base64.getDecoder().decode(email.getBytes())));
