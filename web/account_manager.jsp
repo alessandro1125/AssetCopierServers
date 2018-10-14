@@ -140,7 +140,7 @@
                  right: 20px; color: #e6e6e6; display: inline;">
         </div>
         <div class="form-style-1">
-            <input type="button" style="width: 200px" value="Download Assetcopier"
+            <input type="button" style="width: 250px" value="Download Assetcopier"
                    onclick="download_software()">
         </div>
 
