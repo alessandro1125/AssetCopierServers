@@ -512,7 +512,7 @@
                     try{
                         email6 = URLDecoder.decode
                                 (request.getParameter("email"), "UTF-8");
-                        newPassword = request.getParameter("password");
+                        newPassword = Base64.getEncoder().encodeToString(request.getParameter("password").getBytes());
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         String redirectURL = "login?action=0&message=" +
