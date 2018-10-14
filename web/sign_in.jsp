@@ -201,6 +201,17 @@
 
                             if(SqlUtils.sqlAdd(connection , map, "users")){
 
+                                //aggiungo la mail readable
+                                HashMap<String, Object> objects = new HashMap<>();
+                                objects.put("email_readable", new String(Base64.getDecoder().decode(email.getBytes())));
+                                HashMap<String, Object> params = new HashMap<>();
+                                params.put("email", email);
+                                try{
+                                    SqlUtils.sqlUpdate(connection, "users", objects, params);
+                                }catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
                                 //Stampo la risposta
                                 %>
                 <br>
