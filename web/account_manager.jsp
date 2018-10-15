@@ -170,11 +170,11 @@
             <form action="account_manager?handle_action=2"
                   method="post" enctype="application/x-www-form-urlencoded">
                 <p><b>Channel</b></p>
-                <input type="text" name="channel" value="<%=mtParams.channel%>" placeholder="Enter a Channel...">
+                <input type="text" name="channel" id="channel" value="<%=mtParams.channel%>" placeholder="Enter a Channel...">
                 <p><b>Fixed Size</b></p>
-                <input type="text" name="fixed_size" value="<%=mtParams.fixedSize%>" placeholder="Enter fixed size...">
+                <input type="text" name="fixed_size" id="fixed_size" value="<%=mtParams.fixedSize%>" placeholder="Enter fixed size...">
                 <p><b>Multipler Size</b></p>
-                <input type="text" name="multipler_size" value="<%=mtParams.multiplerSize%>" placeholder="Enter multipler size...">
+                <input type="text" name="multipler_size" id="multipler_size" value="<%=mtParams.multiplerSize%>" placeholder="Enter multipler size...">
                 <p><b>Automatic Size</b></p>
                 <select name="automatic_size">
                     <% if (mtParams.automaticSize.equals("true")) { %>
@@ -186,30 +186,77 @@
                     <% } %>
                 </select>
                 <p><b>Risk</b></p>
-                <input type="text" name="risk" value="<%=mtParams.risk%>" placeholder="Enter risk (%)...">
+                <input type="text" name="risk" id="risk" value="<%=mtParams.risk%>" placeholder="Enter risk (%)...">
                 <p><b>Pip StopLoss Default</b></p>
-                <input type="text" name="pip_stop_loss_default" value="<%=mtParams.pipStopLossDefault%>" placeholder="Enter pip stop loss...">
+                <input type="text" name="pip_stoploss_default" id="pip_stoploss_default" value="<%=mtParams.pipStopLossDefault%>" placeholder="Enter pip stop loss...">
                 <p><b>Minimum Size</b></p>
-                <input type="text" name="minimum_size" value="<%=mtParams.minimumSize%>" placeholder="Enter minimum size...">
+                <input type="text" name="minimum_size" id="minimum_size" value="<%=mtParams.minimumSize%>" placeholder="Enter minimum size...">
                 <p><b>Order Validity Time</b></p>
-                <input type="text" name="order_validity_time" value="<%=mtParams.orderValidityTime%>" placeholder="Enter order validity time...">
+                <input type="text" name="order_validity_time" id="order_validity_time" value="<%=mtParams.orderValidityTime%>" placeholder="Enter order validity time...">
                 <p><b>Slippage</b></p>
-                <input type="text" name="slippage" value="<%=mtParams.slippage%>" placeholder="Enter slippage..">
+                <input type="text" name="slippage" id="slippage" value="<%=mtParams.slippage%>" placeholder="Enter slippage..">
                 <p><b>Asset to Esclude</b></p>
-                <input type="text" name="asset_to_esclude" value="<%=mtParams.assetToEsclude%>" placeholder="Enter assets to esclude...">
+                <input type="text" name="asset_to_esclude" id="asset_to_esclude" value="<%=mtParams.assetToEsclude%>" placeholder="Enter assets to esclude...">
                 <p><b>Suffix</b></p>
-                <input type="text" name="suffix" value="<%=mtParams.suffix%>" placeholder="Enter suffix...">
+                <input type="text" name="suffix" id="suffix" value="<%=mtParams.suffix%>" placeholder="Enter suffix...">
                 <input type="submit" value="Update MT4 Params">
             </form>
         </div>
 
         <script type="application/javascript">
 
-            
+
+            var channelObj = doucument.getElementById("channel");
+            channelObj.addEventListener('input', checkParamsInputs);
+            var fixedSizeObj = doucument.getElementById("fixed_size");
+            fixedSizeObj.addEventListener('input', checkParamsInputs);
+            var multiplerSizeObj = doucument.getElementById("multipler_size");
+            multiplerSizeObj.addEventListener('input', checkParamsInputs);
+            var riskObj = doucument.getElementById("risk");
+            riskObj.addEventListener('input', checkParamsInputs);
+            var pipStoplossDefaultObj = doucument.getElementById("pip_stoploss_default");
+            pipStoplossDefaultObj.addEventListener('input', checkParamsInputs);
+            var minimumlObj = doucument.getElementById("minimum_size");
+            minimumlObj.addEventListener('input', checkParamsInputs);
+            var orderValiditytimeObj = doucument.getElementById("oder_validity_time");
+            orderValiditytimeObj.addEventListener('input', checkParamsInputs);
+            var slippageObj = doucument.getElementById("slippage");
+            slippageObj.addEventListener('input', checkParamsInputs);
+            var assetToEscludeObj = doucument.getElementById("asset_to_esclude");
+            assetToEscludeObj.addEventListener('input', checkParamsInputs);
+            var suffixObj = doucument.getElementById("suffix");
+            suffixObj.addEventListener('input', checkParamsInputs);
+
             function checkParamsInputs() {
-                
+                var channel = channelObj.value;
+                var fixedSize = fixedSizeObj.value;
+                var multiplerSize = multiplerSizeObj.value;
+                var risk = riskObj.value;
+                var pipStopLossDefault = pipStoplossDefaultObj.value;
+                var minimuimSize = minimumlObj.value;
+                var oderValidityTime = orderValiditytimeObj.value;
+                var slippage = slippageObj.value;
+                var assetToEsclude = assetToEscludeObj.value;
+                var suffix = suffixObj.value;
+
+                var channelCorr = true;
+                for (var i = 0; i < channel.length; i++) {
+                    if (isNaN(parseInt(channel.substr(i, 1), 10))) {
+                        channelCorr = false;
+                    }
+                }
+                setBorders(channelObj, channelCorr);
+
+
             }
-            
+
+            function setBorders(object, condition) {
+                if (condition) {
+                    object.style.borderColor = '#28d682';
+                }else {
+                    object.style.borderColor = '#cc4949';
+                }
+            }
             
             function download_software() {
                 //Link di downlaod
