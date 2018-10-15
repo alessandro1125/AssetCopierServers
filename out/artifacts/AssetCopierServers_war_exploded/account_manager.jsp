@@ -2,6 +2,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.assetx.libraries.utils.SqlUtils" %>
 <%@ page import="java.util.HashMap" %>
+<%@ page import="org.assetx.assetcopier.Login.User" %>
 <%@ page import="org.assetx.assetcopier.Login" %>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
@@ -82,11 +83,13 @@
         }
 
 
+
         /**
          *
          * ACTIONS:
          *
          * 1 - aggiorno l'account id
+         * 2 - aggiorno i parametri mt4
          *
          */
         switch (action){
@@ -122,6 +125,12 @@
         }catch (SQLException e){
             e.printStackTrace();
         }
+
+        // Ricavo i parametri mt4 da mail
+        User user = Login.getUser(null, email);
+        assert user != null;
+        Login.Mt4Params mtParams = new Login.Mt4Params(user.mt_params);
+
     %>
         <div id="toolbar" class="form-style-8" style="font-family: 'Open Sans Condensed', sans-serif;
         min-width: 1000px;
@@ -145,6 +154,7 @@
         </div>
 
         <div class="form-style-8">
+            <h2>ID CONTO</h2>
             <p style="display: inline">Current Account Id: <%=accountId%></p>
             <br>
             <form action="account_manager?handle_action=1"
@@ -156,17 +166,102 @@
 
 
         <div class="form-style-8">
-            <p style="display: inline">Current Account Id: <%=accountId%></p>
-            <br>
+            <h2>MT4 PARAMS</h2>
             <form action="account_manager?handle_action=2"
                   method="post" enctype="application/x-www-form-urlencoded">
-                <input type="text" name="new_id" placeholder="Enter a new Account ID...">
-                <input type="submit" value="Update ID">
+                <p><b>Channel</b></p>
+                <input type="text" name="channel" id="channel" value="<%=mtParams.channel%>" placeholder="Enter a Channel...">
+                <p><b>Fixed Size</b></p>
+                <input type="text" name="fixed_size" id="fixed_size" value="<%=mtParams.fixedSize%>" placeholder="Enter fixed size...">
+                <p><b>Multipler Size</b></p>
+                <input type="text" name="multipler_size" id="multipler_size" value="<%=mtParams.multiplerSize%>" placeholder="Enter multipler size...">
+                <p><b>Automatic Size</b></p>
+                <select name="automatic_size">
+                    <% if (mtParams.automaticSize.equals("true")) { %>
+                        <option value="true" selected="selected">true</option>
+                        <option value="false">false</option>
+                    <% } else { %>
+                        <option value="true">true</option>
+                        <option value="false" selected="selected">false</option>
+                    <% } %>
+                </select>
+                <p><b>Risk</b></p>
+                <input type="text" name="risk" id="risk" value="<%=mtParams.risk%>" placeholder="Enter risk (%)...">
+                <p><b>Pip StopLoss Default</b></p>
+                <input type="text" name="pip_stoploss_default" id="pip_stoploss_default" value="<%=mtParams.pipStopLossDefault%>" placeholder="Enter pip stop loss...">
+                <p><b>Minimum Size</b></p>
+                <input type="text" name="minimum_size" id="minimum_size" value="<%=mtParams.minimumSize%>" placeholder="Enter minimum size...">
+                <p><b>Order Validity Time</b></p>
+                <input type="text" name="order_validity_time" id="order_validity_time" value="<%=mtParams.orderValidityTime%>" placeholder="Enter order validity time...">
+                <p><b>Slippage</b></p>
+                <input type="text" name="slippage" id="slippage" value="<%=mtParams.slippage%>" placeholder="Enter slippage..">
+                <p><b>Asset to Esclude</b></p>
+                <input type="text" name="asset_to_esclude" id="asset_to_esclude" value="<%=mtParams.assetToEsclude%>" placeholder="Enter assets to esclude...">
+                <p><b>Suffix</b></p>
+                <input type="text" name="suffix" id="suffix" value="<%=mtParams.suffix%>" placeholder="Enter suffix...">
+                <input type="submit" value="Update MT4 Params">
             </form>
         </div>
 
         <script type="application/javascript">
 
+
+            var channelObj = doucument.getElementById("channel");
+            channelObj.addEventListener('input', checkParamsInputs);
+            var fixedSizeObj = doucument.getElementById("fixed_size");
+            fixedSizeObj.addEventListener('input', checkParamsInputs);
+            var multiplerSizeObj = doucument.getElementById("multipler_size");
+            multiplerSizeObj.addEventListener('input', checkParamsInputs);
+            var riskObj = doucument.getElementById("risk");
+            riskObj.addEventListener('input', checkParamsInputs);
+            var pipStoplossDefaultObj = doucument.getElementById("pip_stoploss_default");
+            pipStoplossDefaultObj.addEventListener('input', checkParamsInputs);
+            var minimumlObj = doucument.getElementById("minimum_size");
+            minimumlObj.addEventListener('input', checkParamsInputs);
+            var orderValiditytimeObj = doucument.getElementById("oder_validity_time");
+            orderValiditytimeObj.addEventListener('input', checkParamsInputs);
+            var slippageObj = doucument.getElementById("slippage");
+            slippageObj.addEventListener('input', checkParamsInputs);
+            var assetToEscludeObj = doucument.getElementById("asset_to_esclude");
+            assetToEscludeObj.addEventListener('input', checkParamsInputs);
+            var suffixObj = doucument.getElementById("suffix");
+            suffixObj.addEventListener('input', checkParamsInputs);
+
+
+            channelObj.style.borderColor = '#28d682';
+            channelObj.style.borderWidth = '2px';
+
+            function checkParamsInputs() {
+                var channel = channelObj.value;
+                var fixedSize = fixedSizeObj.value;
+                var multiplerSize = multiplerSizeObj.value;
+                var risk = riskObj.value;
+                var pipStopLossDefault = pipStoplossDefaultObj.value;
+                var minimuimSize = minimumlObj.value;
+                var oderValidityTime = orderValiditytimeObj.value;
+                var slippage = slippageObj.value;
+                var assetToEsclude = assetToEscludeObj.value;
+                var suffix = suffixObj.value;
+
+                var channelCorr = true;
+                for (var i = 0; i < channel.length; i++) {
+                    if (isNaN(parseInt(channel.substr(i, 1), 10))) {
+                        channelCorr = false;
+                    }
+                }
+                setBorders(channelObj, channelCorr);
+
+
+            }
+
+            function setBorders(object, condition) {
+                if (condition) {
+                    object.style.borderColor = '#28d682';
+                }else {
+                    object.style.borderColor = '#cc4949';
+                }
+            }
+            
             function download_software() {
                 //Link di downlaod
                 window.location.href = "/download_zip";
