@@ -165,17 +165,99 @@ public class Login extends HttpServlet {
     }
 
     public static class User {
-        String name;
-        String surname;
-        String email;
-        String password;
-        String account_id;
-        int email_active;
-        int licence_active;
-        String passkey;
-        String chat_id;
-        boolean trades_listen;
-        String email_readable;
-        String mt_params;
+        public String name;
+        public String surname;
+        public String email;
+        public String password;
+        public String account_id;
+        public int email_active;
+        public int licence_active;
+        public String passkey;
+        public String chat_id;
+        public boolean trades_listen;
+        public String email_readable;
+        public String mt_params;
+    }
+
+    public static class Mt4Params {
+
+        public String channel;
+        public String fixedSize;
+        public String multiplerSize;
+        public String automaticSize;
+        public String risk;
+        public String pipStopLossDefault;
+        public String minimumSize;
+        public String orderValidityTime;
+        public String slippage;
+        public String assetToEsclude;
+        public String suffix;
+
+        public Mt4Params (String mt_params) {
+            String[] params = mt_params.split("&");
+            try{
+                this.channel = base64Decoder(params[0]);
+            }catch (Exception e) {
+                this.channel = "";
+            }
+            try{
+                this.fixedSize = base64Decoder(params[1]);
+            }catch (Exception e) {
+                this.fixedSize = "";
+            }
+            try{
+                this.multiplerSize = base64Decoder(params[2]);
+            }catch (Exception e) {
+                this.multiplerSize = "";
+            }
+            try{
+                this.automaticSize = base64Decoder(params[3]);
+            }catch (Exception e) {
+                this.automaticSize = "";
+            }
+            try {
+                this.risk = base64Decoder(params[4]);
+            }catch (Exception e) {
+                this.risk = "";
+            }
+            try {
+                this.pipStopLossDefault = base64Decoder(params[5]);
+            }catch (Exception e) {
+                this.pipStopLossDefault = "";
+            }
+            try{
+                this.minimumSize = base64Decoder(params[6]);
+            }catch (Exception e) {
+                this.minimumSize = "";
+            }
+            try {
+                this.orderValidityTime = base64Decoder(params[7]);
+            }catch (Exception e) {
+                this.orderValidityTime = "";
+            }
+            try{
+                this.slippage = base64Decoder(params[8]);
+            }catch (Exception e) {
+                this.slippage = "";
+            }
+            try{
+                this.assetToEsclude = base64Decoder(params[9]);
+            }catch (Exception e) {
+                this.assetToEsclude = "";
+            }
+            try{
+                this.suffix = base64Decoder(params[10]);
+            }catch (Exception e) {
+                this.suffix = "";
+            }
+        }
+    }
+
+    public static String base64Decoder(String source) {
+        return new String(Base64.getDecoder().decode(source));
+    }
+
+    public static String base64Encoder(String source) {
+        return Base64.getEncoder().encodeToString(source.getBytes());
     }
 }

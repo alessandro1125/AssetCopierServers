@@ -2,7 +2,6 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.assetx.libraries.utils.SqlUtils" %>
 <%@ page import="java.util.HashMap" %>
-<%@ page import="org.assetx.assetcopier.Login.User" %>
 <%@ page import="org.assetx.assetcopier.Login" %>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
@@ -83,19 +82,11 @@
         }
 
 
-        // Ricavo i parametri mt4 da mail
-        User user = Login.getUser(null, email);
-        assert user != null;
-        Login.Mt4Params mtParams = new Login.Mt4Params(user.mt_params);
-
-
-
         /**
          *
          * ACTIONS:
          *
          * 1 - aggiorno l'account id
-         * 2 - aggiorno i parametri mt4
          *
          */
         switch (action){
@@ -165,12 +156,11 @@
 
 
         <div class="form-style-8">
+            <p style="display: inline">Current Account Id: <%=accountId%></p>
+            <br>
             <form action="account_manager?handle_action=2"
                   method="post" enctype="application/x-www-form-urlencoded">
-                <p>Channel</p>
-                <input type="text" name="channel" value="<%=mtParams.channel%>" placeholder="Enter a Channel...">
-                <p>Fixed Size</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.fixedSize%>" placeholder="Enter fixed size...">
+                <input type="text" name="new_id" placeholder="Enter a new Account ID...">
                 <input type="submit" value="Update ID">
             </form>
         </div>
