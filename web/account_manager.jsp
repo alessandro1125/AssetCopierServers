@@ -227,6 +227,8 @@
             var suffixObj = doucument.getElementById("suffix");
             suffixObj.addEventListener('input', checkParamsInputs);
 
+            object.style.borderColor = '#28d682';
+
             function checkParamsInputs() {
                 var channel = channelObj.value;
                 var fixedSize = fixedSizeObj.value;
