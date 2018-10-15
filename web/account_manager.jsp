@@ -167,27 +167,27 @@
         <div class="form-style-8">
             <form action="account_manager?handle_action=2"
                   method="post" enctype="application/x-www-form-urlencoded">
-                <h2>Channel</h2>
+                <p>Channel</p>
                 <input type="text" name="channel" value="<%=mtParams.channel%>" placeholder="Enter a Channel...">
-                <h2>Fixed Size</h2>
+                <p>Fixed Size</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.fixedSize%>" placeholder="Enter fixed size...">
-                <h2>Multipler Size</h2>
+                <p>Multipler Size</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.multiplerSize%>" placeholder="Enter fixed size...">
-                <h2>Automatic Size</h2>
+                <p>Automatic Size</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.automaticSize%>" placeholder="Enter fixed size...">
-                <h2>Risk</h2>
+                <p>Risk</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.risk%>" placeholder="Enter fixed size...">
-                <h2>Pip StopLoss Default</h2>
+                <p>Pip StopLoss Default</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.pipStopLossDefault%>" placeholder="Enter fixed size...">
-                <h2>Minimum Size</h2>
+                <p>Minimum Size</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.minimumSize%>" placeholder="Enter fixed size...">
-                <h2>Order Validity Time</h2>
+                <p>Order Validity Time</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.orderValidityTime%>" placeholder="Enter fixed size...">
-                <h2>Slippage</h2>
+                <p>Slippage</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.slippage%>" placeholder="Enter fixed size...">
-                <h2>Asset to Esclude</h2>
+                <p>Asset to Esclude</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.assetToEsclude%>" placeholder="Enter fixed size...">
-                <h2>Suffix</h2>
+                <p>Suffix</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.suffix%>" placeholder="Enter fixed size...">
                 <input type="submit" value="Update MT4 Params">
             </form>
