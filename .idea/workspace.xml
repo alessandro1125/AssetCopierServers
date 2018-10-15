@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15bc738a-9824-41fe-bfa7-b969fc7b2bed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/assetx/assetcopier/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/assetx/assetcopier/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/account_manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/account_manager.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -51,7 +49,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="3236" />
-          <entry key="jsp" value="1274" />
+          <entry key="jsp" value="1439" />
           <entry key="txt" value="14" />
           <entry key="xml" value="44" />
         </counts>
@@ -59,7 +57,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="3236" />
-          <entry key="JSP" value="1274" />
+          <entry key="JSP" value="1439" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="XML" value="44" />
         </counts>
@@ -87,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/assetx/assetcopier/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="250" column="33" selection-start-line="250" selection-start-column="33" selection-end-line="250" selection-end-column="33" />
+            <state relative-caret-position="375">
+              <caret line="190" column="30" selection-start-line="190" selection-start-column="30" selection-end-line="190" selection-end-column="30" />
               <folding>
                 <element signature="e#6414#6415#0" expanded="true" />
                 <element signature="e#6491#6492#0" expanded="true" />
@@ -99,20 +97,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/account_manager.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="186" column="118" lean-forward="true" selection-start-line="186" selection-start-column="118" selection-end-line="186" selection-end-column="118" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1845">
               <caret line="123" column="83" selection-start-line="123" selection-start-column="83" selection-end-line="123" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/account_manager.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="171" column="33" lean-forward="true" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -609,12 +607,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539450062012</updated>
       <workItem from="1539450638812" duration="15388000" />
-      <workItem from="1539605398817" duration="5441000" />
+      <workItem from="1539605398817" duration="7089000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20829000" />
+    <option name="totallyTimeSpent" value="22477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="23" width="1875" height="1057" extended-state="6" />
@@ -751,8 +749,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/assetx/assetcopier/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="250" column="33" selection-start-line="250" selection-start-column="33" selection-end-line="250" selection-end-column="33" />
+        <state relative-caret-position="375">
+          <caret line="190" column="30" selection-start-line="190" selection-start-column="30" selection-end-line="190" selection-end-column="30" />
           <folding>
             <element signature="e#6414#6415#0" expanded="true" />
             <element signature="e#6491#6492#0" expanded="true" />
@@ -764,8 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/account_manager.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="171" column="33" lean-forward="true" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
+        <state relative-caret-position="731">
+          <caret line="186" column="118" lean-forward="true" selection-start-line="186" selection-start-column="118" selection-end-line="186" selection-end-column="118" />
         </state>
       </provider>
     </entry>
