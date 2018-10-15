@@ -165,6 +165,7 @@
 
 
         <div class="form-style-8">
+            <h2>MT4 PARAMS</h2>
             <form action="account_manager?handle_action=2"
                   method="post" enctype="application/x-www-form-urlencoded">
                 <p>Channel</p>
@@ -172,23 +173,31 @@
                 <p>Fixed Size</p>
                 <input type="text" name="fixed_size" value="<%=mtParams.fixedSize%>" placeholder="Enter fixed size...">
                 <p>Multipler Size</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.multiplerSize%>" placeholder="Enter fixed size...">
+                <input type="text" name="multipler_size" value="<%=mtParams.multiplerSize%>" placeholder="Enter multipler size...">
                 <p>Automatic Size</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.automaticSize%>" placeholder="Enter fixed size...">
+                <select name="automatic_size">
+                    <% if (mtParams.automaticSize.equals("true")) { %>
+                        <option value="true" selected="selected">true</option>
+                        <option value="false">false</option>
+                    <% } else { %>
+                        <option value="true">true</option>
+                        <option value="false" selected="selected">false</option>
+                    <% } %>
+                </select>
                 <p>Risk</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.risk%>" placeholder="Enter fixed size...">
+                <input type="text" name="risk" value="<%=mtParams.risk%>" placeholder="Enter fixed size...">
                 <p>Pip StopLoss Default</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.pipStopLossDefault%>" placeholder="Enter fixed size...">
+                <input type="text" name="pip_stop_loss_default" value="<%=mtParams.pipStopLossDefault%>" placeholder="Enter fixed size...">
                 <p>Minimum Size</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.minimumSize%>" placeholder="Enter fixed size...">
+                <input type="text" name="minimum_size" value="<%=mtParams.minimumSize%>" placeholder="Enter fixed size...">
                 <p>Order Validity Time</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.orderValidityTime%>" placeholder="Enter fixed size...">
+                <input type="text" name="order_validity_time" value="<%=mtParams.orderValidityTime%>" placeholder="Enter fixed size...">
                 <p>Slippage</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.slippage%>" placeholder="Enter fixed size...">
+                <input type="text" name="slippage" value="<%=mtParams.slippage%>" placeholder="Enter fixed size...">
                 <p>Asset to Esclude</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.assetToEsclude%>" placeholder="Enter fixed size...">
+                <input type="text" name="asset_to_esclude" value="<%=mtParams.assetToEsclude%>" placeholder="Enter fixed size...">
                 <p>Suffix</p>
-                <input type="text" name="fixed_size" value="<%=mtParams.suffix%>" placeholder="Enter fixed size...">
+                <input type="text" name="suffix" value="<%=mtParams.suffix%>" placeholder="Enter fixed size...">
                 <input type="submit" value="Update MT4 Params">
             </form>
         </div>
