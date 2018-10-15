@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15bc738a-9824-41fe-bfa7-b969fc7b2bed" name="Default Changelist" comment="" />
+    <list default="true" id="15bc738a-9824-41fe-bfa7-b969fc7b2bed" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/web/account_manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/account_manager.jsp" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -47,7 +49,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="3236" />
-          <entry key="jsp" value="2812" />
+          <entry key="jsp" value="2815" />
           <entry key="txt" value="14" />
           <entry key="xml" value="44" />
         </counts>
@@ -55,7 +57,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="3236" />
-          <entry key="JSP" value="2812" />
+          <entry key="JSP" value="2815" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="XML" value="44" />
         </counts>
@@ -87,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/web/account_manager.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="464">
-              <caret line="229" column="49" selection-start-line="229" selection-start-column="49" selection-end-line="229" selection-end-column="49" />
+              <caret line="229" column="22" selection-start-line="229" selection-start-column="22" selection-end-line="229" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -598,12 +600,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539450062012</updated>
       <workItem from="1539450638812" duration="15388000" />
-      <workItem from="1539605398817" duration="12586000" />
+      <workItem from="1539605398817" duration="12782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27974000" />
+    <option name="totallyTimeSpent" value="28170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="23" width="1875" height="1057" extended-state="0" />
@@ -754,7 +756,7 @@
     <entry file="file://$PROJECT_DIR$/web/account_manager.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
-          <caret line="229" column="49" selection-start-line="229" selection-start-column="49" selection-end-line="229" selection-end-column="49" />
+          <caret line="229" column="22" selection-start-line="229" selection-start-column="22" selection-end-line="229" selection-end-column="22" />
         </state>
       </provider>
     </entry>
