@@ -59,7 +59,7 @@
         </div>
 
         <div class = "form-style-8" style="bottom:0px;left:20%;">
-            Contacts:<blockquote> alessandrogiordano@assetcopier.com</blockquote>
+            Contacts:<blockquote> info@assetcopier.com<br>customers@assetcopier.com</blockquote>
         </div>
         <script type="application/javascript">
 

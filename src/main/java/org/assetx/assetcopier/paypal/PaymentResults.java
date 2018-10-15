@@ -23,11 +23,7 @@ public class PaymentResults extends HttpServlet {
         //Controllo se il protocollo è https
         Utils.checkForHttpsProtocol(req, resp);
 
-        Enumeration headers = req.getHeaderNames();
-        while (headers.hasMoreElements()) {
-            String header = (String) headers.nextElement();
-            System.out.println("Header: " + req.getHeader(header));
-        }
+
     }
 
     @Override

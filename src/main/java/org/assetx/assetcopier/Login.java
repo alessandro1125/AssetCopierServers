@@ -107,6 +107,28 @@ public class Login extends HttpServlet {
      */
     public static int authenticateUser(Connection connection, String email, String password) throws SQLException {
 
+        boolean passwordFounded = false;
+        boolean attivato = false;
+
+        User user = getUser(connection, email);
+
+        if (user != null) {
+            //Controllo corrispondenze
+            if (user.password.equals(password))
+                passwordFounded = true;
+            if (passwordFounded && user.email_active == 1)
+                attivato = true;
+            //Genero output
+            if (!passwordFounded)
+                return 2;
+            if (!attivato)
+                return 3;
+            return 0;
+        }else
+            return 1;
+    }
+
+    public static User getUser(Connection connection, String email) {
         if (connection == null)
             connection = SqlUtils.getConnectionHeroku();
 
@@ -114,40 +136,46 @@ public class Login extends HttpServlet {
         Statement statement;
         String query;
 
-        query = "SELECT email,password,email_active FROM users WHERE email='"+email+"'";
-
+        query = "SELECT * FROM users WHERE email='"+email+"';";
         try{
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-
-            boolean emailFounded = false;
-            boolean passwordFounded = false;
-            boolean attivato = false;
-            while (resultSet.next()){
-                //Controllo corrispondenze
-                if (resultSet.getString("email").equals(email))
-                    emailFounded = true;
-                if (emailFounded && resultSet.getString("password").equals(password))
-                    passwordFounded = true;
-                if (emailFounded && passwordFounded && resultSet.getString("email_active").equals("1"))
-                    attivato = true;
+            User user = null;
+            if(resultSet.next()) {
+                user = new User();
+                user.name = resultSet.getString("name");
+                user.surname = resultSet.getString("surname");
+                user.email = resultSet.getString("email");
+                user.password = resultSet.getString("password");
+                user.account_id = resultSet.getString("account_id");
+                user.email_active = resultSet.getInt("email_active");
+                user.licence_active = resultSet.getInt("licence_active");
+                user.passkey = resultSet.getString("passkey");
+                user.chat_id = resultSet.getString("chat_id");
+                user.trades_listen = resultSet.getBoolean("trades_listen");
+                user.email_readable = resultSet.getString("email_readable");
+                user.mt_params = resultSet.getString("mt_params");
             }
             connection.close();
-
-
-            //Genero output
-            if (!emailFounded)
-                return 1;
-            if (!passwordFounded)
-                return 2;
-            if (!attivato)
-                return 3;
-            return 0;
-
-
+            return user;
         }catch (SQLException sqle){
             sqle.printStackTrace();
-            return -1;
         }
+        return null;
+    }
+
+    public static class User {
+        String name;
+        String surname;
+        String email;
+        String password;
+        String account_id;
+        int email_active;
+        int licence_active;
+        String passkey;
+        String chat_id;
+        boolean trades_listen;
+        String email_readable;
+        String mt_params;
     }
 }
