@@ -154,6 +154,7 @@
         </div>
 
         <div class="form-style-8">
+            <h2>ID CONTO</h2>
             <p style="display: inline">Current Account Id: <%=accountId%></p>
             <br>
             <form action="account_manager?handle_action=1"
@@ -168,13 +169,13 @@
             <h2>MT4 PARAMS</h2>
             <form action="account_manager?handle_action=2"
                   method="post" enctype="application/x-www-form-urlencoded">
-                <p>Channel</p>
+                <p><b>Channel</b></p>
                 <input type="text" name="channel" value="<%=mtParams.channel%>" placeholder="Enter a Channel...">
-                <p>Fixed Size</p>
+                <p><b>Fixed Size</b></p>
                 <input type="text" name="fixed_size" value="<%=mtParams.fixedSize%>" placeholder="Enter fixed size...">
-                <p>Multipler Size</p>
+                <p><b>Multipler Size</b></p>
                 <input type="text" name="multipler_size" value="<%=mtParams.multiplerSize%>" placeholder="Enter multipler size...">
-                <p>Automatic Size</p>
+                <p><b>Automatic Size</b></p>
                 <select name="automatic_size">
                     <% if (mtParams.automaticSize.equals("true")) { %>
                         <option value="true" selected="selected">true</option>
@@ -184,26 +185,32 @@
                         <option value="false" selected="selected">false</option>
                     <% } %>
                 </select>
-                <p>Risk</p>
-                <input type="text" name="risk" value="<%=mtParams.risk%>" placeholder="Enter fixed size...">
-                <p>Pip StopLoss Default</p>
-                <input type="text" name="pip_stop_loss_default" value="<%=mtParams.pipStopLossDefault%>" placeholder="Enter fixed size...">
-                <p>Minimum Size</p>
-                <input type="text" name="minimum_size" value="<%=mtParams.minimumSize%>" placeholder="Enter fixed size...">
-                <p>Order Validity Time</p>
-                <input type="text" name="order_validity_time" value="<%=mtParams.orderValidityTime%>" placeholder="Enter fixed size...">
-                <p>Slippage</p>
-                <input type="text" name="slippage" value="<%=mtParams.slippage%>" placeholder="Enter fixed size...">
-                <p>Asset to Esclude</p>
-                <input type="text" name="asset_to_esclude" value="<%=mtParams.assetToEsclude%>" placeholder="Enter fixed size...">
-                <p>Suffix</p>
-                <input type="text" name="suffix" value="<%=mtParams.suffix%>" placeholder="Enter fixed size...">
+                <p><b>Risk</b></p>
+                <input type="text" name="risk" value="<%=mtParams.risk%>" placeholder="Enter risk (%)...">
+                <p><b>Pip StopLoss Default</b></p>
+                <input type="text" name="pip_stop_loss_default" value="<%=mtParams.pipStopLossDefault%>" placeholder="Enter pip stop loss...">
+                <p><b>Minimum Size</b></p>
+                <input type="text" name="minimum_size" value="<%=mtParams.minimumSize%>" placeholder="Enter minimum size...">
+                <p><b>Order Validity Time</b></p>
+                <input type="text" name="order_validity_time" value="<%=mtParams.orderValidityTime%>" placeholder="Enter order validity time...">
+                <p><b>Slippage</b></p>
+                <input type="text" name="slippage" value="<%=mtParams.slippage%>" placeholder="Enter slippage..">
+                <p><b>Asset to Esclude</b></p>
+                <input type="text" name="asset_to_esclude" value="<%=mtParams.assetToEsclude%>" placeholder="Enter assets to esclude...">
+                <p><b>Suffix</b></p>
+                <input type="text" name="suffix" value="<%=mtParams.suffix%>" placeholder="Enter suffix...">
                 <input type="submit" value="Update MT4 Params">
             </form>
         </div>
 
         <script type="application/javascript">
 
+            
+            function checkParamsInputs() {
+                
+            }
+            
+            
             function download_software() {
                 //Link di downlaod
                 window.location.href = "/download_zip";
