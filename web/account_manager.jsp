@@ -206,11 +206,11 @@
         <script type="application/javascript">
 
 
-            var channelObj = doucument.getElementById("channel");
+            var channelObj = doucument.getElementById('channel');
             channelObj.addEventListener('input', checkParamsInputs);
-            var fixedSizeObj = doucument.getElementById("fixed_size");
+            var fixedSizeObj = doucument.getElementById('fixed_size');
             fixedSizeObj.addEventListener('input', checkParamsInputs);
-            var multiplerSizeObj = doucument.getElementById("multipler_size");
+            var multiplerSizeObj = doucument.getElementById('multipler_size');
             multiplerSizeObj.addEventListener('input', checkParamsInputs);
             var riskObj = doucument.getElementById("risk");
             riskObj.addEventListener('input', checkParamsInputs);
@@ -229,7 +229,6 @@
 
 
             channelObj.style.borderColor = '#28d682';
-            channelObj.style.borderWidth = '2px';
 
             function checkParamsInputs() {
                 var channel = channelObj.value;

@@ -49,7 +49,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="3236" />
-          <entry key="jsp" value="2827" />
+          <entry key="jsp" value="2839" />
           <entry key="txt" value="14" />
           <entry key="xml" value="44" />
         </counts>
@@ -57,7 +57,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="3236" />
-          <entry key="JSP" value="2827" />
+          <entry key="JSP" value="2839" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="XML" value="44" />
         </counts>
@@ -88,8 +88,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/account_manager.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="231" column="49" lean-forward="true" selection-start-line="231" selection-start-column="49" selection-end-line="231" selection-end-column="49" />
+            <state relative-caret-position="526">
+              <caret line="212" column="76" selection-start-line="212" selection-start-column="76" selection-end-line="212" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -599,12 +599,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539450062012</updated>
       <workItem from="1539450638812" duration="15388000" />
-      <workItem from="1539605398817" duration="12997000" />
+      <workItem from="1539605398817" duration="13076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28385000" />
+    <option name="totallyTimeSpent" value="28464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="23" width="1875" height="1057" extended-state="0" />
@@ -754,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/account_manager.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="231" column="49" lean-forward="true" selection-start-line="231" selection-start-column="49" selection-end-line="231" selection-end-column="49" />
+        <state relative-caret-position="526">
+          <caret line="212" column="76" selection-start-line="212" selection-start-column="76" selection-end-line="212" selection-end-column="76" />
         </state>
       </provider>
     </entry>
